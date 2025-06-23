@@ -1,33 +1,33 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import { useLocalStorage } from '../hooks/useLocalstorage'
-import { useEffect, useState } from 'react'
-import Image from 'next/image'
-import logo from 'assets/logo.svg'
-import login from 'assets/login.svg'
-import { useRouter } from 'next/router'
-import { ParsedUrlQuery } from 'querystring'
+import type { NextPage } from "next";
+import Head from "next/head";
+import { useLocalStorage } from "../hooks/useLocalstorage";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import logo from "assets/logo.svg";
+import login from "assets/login.svg";
+import { useRouter } from "next/router";
+import { ParsedUrlQuery } from "querystring";
 
 interface QueryParams extends ParsedUrlQuery {
-  code: string
+  code: string;
 }
 
 const Home: NextPage = () => {
-  const router = useRouter()
-  const { code } = router.query as QueryParams
-  const [, setDebug] = useLocalStorage('debug', 'true')
-  const [tagId, setTagId] = useLocalStorage('prodAdoptTag', code)
-  const [id, setId] = useState(code)
+  const router = useRouter();
+  const { code } = router.query as QueryParams;
+  const [, setDebug] = useLocalStorage("debug", "true");
+  const [tagId, setTagId] = useLocalStorage("prodAdoptTag", code);
+  const [id, setId] = useState(code);
 
   useEffect(() => {
-    setDebug('true')
-  }, [])
+    setDebug("true");
+  }, []);
 
   useEffect(() => {
     if (code !== undefined) {
-      setTagId(code)
+      setTagId(code);
     }
-  }, [code])
+  }, [code]);
 
   return (
     <>
@@ -40,7 +40,7 @@ const Home: NextPage = () => {
 
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KGTK9DT');`
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KGTK9DT');`,
           }}
         ></script>
 
@@ -55,7 +55,7 @@ const Home: NextPage = () => {
       function gtag() { window.dataLayer.push(arguments); }
       gtag('js', new Date());
       gtag('config', 'G-WD6N9J65C8');
-    `
+    `,
           }}
         ></script>
       </Head>
@@ -83,8 +83,8 @@ const Home: NextPage = () => {
                       type="text"
                       className="dark:bg-gray dark:text-white appearance-none relative block w-full px-3 py-2 border border-gray-400 placeholder-gray-400 text-gray-900 rounded-md focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm"
                       value={id}
-                      onChange={e => {
-                        setId(e.target.value)
+                      onChange={(e) => {
+                        setId(e.target.value);
                       }}
                     />
                     <button
@@ -105,7 +105,7 @@ const Home: NextPage = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
