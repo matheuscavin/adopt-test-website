@@ -38,24 +38,10 @@ const Home: NextPage = () => {
           className="adopt-injector"
         ></script>
 
+        {/* GTM */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KGTK9DT');`,
-          }}
-        ></script>
-
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-WD6N9J65C8"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { window.dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-WD6N9J65C8');
-    `,
           }}
         ></script>
       </Head>
@@ -96,7 +82,7 @@ const Home: NextPage = () => {
                   </div>
                 ) : (
                   <div className="mt-6 mb-1  text-center">
-                    Ambiente para testes da AdOpt
+                    Ambiente para testes da AdOpt :)
                   </div>
                 )}
               </div>
